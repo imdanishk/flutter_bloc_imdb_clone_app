@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'home/home_screen.dart';
+import 'home/home_screen_view_model.dart';
 import 'main_screen_view_model.dart';
+import 'profile/profile_screen.dart';
+import 'search/search_screen.dart';
+import 'video/video_screen.dart';
+import 'widgets/bottom_navigation.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({
@@ -29,12 +35,15 @@ class _MainScreenState extends State<MainScreen> {
       body: PageView(
         controller: _pageController,
         children: [
-          Text("data")
+          HomeScreen(viewModel: HomeScreenViewModel()),
+          const SearchScreen(),
+          const VideoScreen(),
+          const ProfileScreen(),
         ],
       ),
-      // bottomNavigationBar: IMDBBottomNavigationBar(
-      //   pageController: _pageController,
-      // ),
+      bottomNavigationBar: IMDBBottomNavigationBar(
+        pageController: _pageController,
+      ),
     );
   }
 }
