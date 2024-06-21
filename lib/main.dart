@@ -10,7 +10,7 @@ import 'package:flutter_bloc_imdb_clone_app/core/di/di_container.dart';
 import 'custom_bloc_observer.dart';
 
 void main() async {
-  // await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await initDi();
