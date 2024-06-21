@@ -8,7 +8,7 @@ part of 'movie_response.dart';
 
 MovieResponse _$MovieResponseFromJson(Map<String, dynamic> json) =>
     MovieResponse(
-      json['id'] as int,
+      (json['id'] as num).toInt(),
       json['title'] as String,
       (json['vote_average'] as num).toDouble(),
       json['poster_path'] as String,

@@ -1,4 +1,5 @@
-import 'package:imdb_clone/domain/entities/token_data.dart';
+
+import '../entities/token_data.dart';
 
 abstract class TokenRepository {
   Future<TokenData?> getToken();

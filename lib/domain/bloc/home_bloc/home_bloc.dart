@@ -8,9 +8,7 @@ import 'home_event.dart';
 import 'home_state.dart';
 
 class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
-  HomeBloc(
-    this._movieRepository,
-  ) : super(InitialHomeState()) {
+  HomeBloc(this._movieRepository) : super(InitialHomeState()) {
     on<FetchTrendingMoviesHomeEvent>(_handleFetchTrendingMovies);
     on<FetchTopRatedMoviesHomeEvent>(_handleFetchTopRatedMovies);
   }
@@ -23,9 +21,12 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
   ) async {
     emit(FetchingTrendingMoviesHomeState());
     try {
+      print('Fetching trending movies from repository');
       final data = await _movieRepository.getTrendingMoviesOfThisWeek();
+      print('Trending movies data: $data');
       emit(FetchedTrendingMoviesHomeState(data));
-    } on Object catch (_) {
+    } catch (error) {
+      print('Error in Bloc while fetching trending movies: $error');
       emit(FetchFailTrendingMoviesHomeState());
     }
   }
@@ -36,10 +37,14 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
   ) async {
     emit(FetchingTopRatedMoviesHomeState());
     try {
+      print('Fetching top rated movies from repository');
       final data = await _movieRepository.getTopRatedMovies();
+      print('Top rated movies data: $data');
       emit(FetchedTopRatedMoviesHomeState(data));
-    } on Object catch (_) {
+    } catch (error) {
+      print('Error in Bloc while fetching top rated movies: $error');
       emit(FetchFailTopRatedMoviesHomeState());
     }
   }
 }
+
