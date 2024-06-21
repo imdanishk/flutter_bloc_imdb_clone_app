@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_bloc_imdb_clone_app/library/resource/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'splash_screen_view_model.dart';
@@ -34,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: const Color(0xFFFBDA32),
       body: Center(
         child: SvgPicture.asset(
-          'assets/icons/imdb-logo.svg',
+          AppIcons.imdbLogo,
           height: 200,
         ),
       ),

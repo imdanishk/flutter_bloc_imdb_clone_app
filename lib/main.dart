@@ -7,13 +7,13 @@ import 'package:flutter_bloc_imdb_clone_app/app/imdb_clone_app.dart';
 import 'package:flutter_bloc_imdb_clone_app/core/di/di_container.dart';
 
 void main() async {
-  await dotenv.load(fileName: ".env");
+  // await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await initDi();
   runApp(
     TranslationProvider(
-      child: const ImdbCloneApp(),
+      child: const IMDBCloneApp(),
     ),
   );
 }
